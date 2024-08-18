@@ -16,3 +16,4 @@ class EstadiaFormulario(forms.Form):
     fecha_de_regreso = forms.DateField()
     residencia = forms.CharField(max_length=40)
     metodo_de_transporte = forms.CharField(max_length=40)
+

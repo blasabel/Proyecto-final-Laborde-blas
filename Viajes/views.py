@@ -63,8 +63,8 @@ def estadia(request):
 
     return render(request, "Viajes/estadia.html", {"miFormulario3": miFormulario3})
 
-def busquedaCiudad(request):
-    return render(request, "Viajes/busquedaCiudad.html")
+def buscarciudad(request):
+    return render(request, "Viajes/buscarFormulario.html")
 
 def buscar(request):
     
@@ -72,7 +72,7 @@ def buscar(request):
         ciudad = request.GET['ciudad']
         pais = Destino.objects.filter(ciudad__icontains=ciudad)
 
-        return render(request, "Viajes/resultadoBusqueda.html", {"pais":pais, "ciudad":ciudad} )
+        return render(request, "Viajes/buscarFormulario.html", {"pais":pais, "ciudad":ciudad} )
     else:
         respuesta = "No enviaste datos"
     return HttpResponse(respuesta)

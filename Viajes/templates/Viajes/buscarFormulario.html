@@ -1,0 +1,27 @@
+{% extends "Viajes/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<h3> Formulario -- Buscar Ciudad</h3>
+
+<form action="/Viajes/buscar/" method="GET">
+    <input type="text" name="ciudad" id="ciudad">
+    <input type="submit" value="Buscar">
+
+
+</form>
+
+<p> Estamos buscando: {{ciudad}}</p>
+
+{% if pais %}
+
+<ul>
+{% for Destino in pais %}
+    <li> {{Destino.ciudad}}</li>
+    <li> {{Destino.pais}}</li>
+{% endfor %}
+</ul>
+
+{% endif %}
+{% endblock %}
