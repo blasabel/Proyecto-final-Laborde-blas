@@ -8,15 +8,6 @@ def inicio(request):
     return render(request, 'Viajes/index.html')
 
 def cliente(request):
-    return render(request, 'Viajes/cliente.html')
-
-def destino(request):
-    return render(request, 'Viajes/destino.html')
-
-def estadia(request):
-    return render(request, 'Viajes/estadia.html')
-
-def clienteFormulario(request):
     if request.method == "POST":  
         miFormulario = ClienteFormulario(request.POST)  
         print(miFormulario)  
@@ -33,3 +24,9 @@ def clienteFormulario(request):
         miFormulario = ClienteFormulario()  
 
     return render(request, "Viajes/cliente.html", {"miFormulario": miFormulario})
+    
+def destino(request):
+    return render(request, 'Viajes/destino.html')
+
+def estadia(request):
+    return render(request, 'Viajes/estadia.html')
