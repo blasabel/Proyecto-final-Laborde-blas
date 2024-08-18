@@ -1,17 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% extends "Viajes/padre.html" %}
+{% extends "Viajes/padre.html" %}
 
-    {% load static %}
+{% load static %}
     
-    {% block contenidoQueCambia %}
+{% block contenidoQueCambia %}
     
-    <h1> ESTO ES ESTADIA</h1>
-    {% endblock %}
-</html>
+        <h3> Formulario -- Agregar Estadia</h3>
+        
+        {% if miFormulario3.errors %}
+    
+        <p style="color: red;"> Están mal los datos, revisar</p>
+    
+        {% endif %}
+        <form action="" method="POST">
+            {% csrf_token %}
+    
+            <table>
+                {{ miFormulario3.as_table }}
+            </table>
+    
+            <input type="submit" , value="Enviar">
+    
+        </form>
+{% endblock %}

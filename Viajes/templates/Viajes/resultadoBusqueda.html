@@ -1,0 +1,12 @@
+<p> Estamos buscando: {{ciudad}}</p>
+
+{% if destino %}
+
+<ul>
+{% for destino in destino %}
+    <li> {{destino.ciudad}}</li>
+    <li> {{destino.pais}}</li>
+{% endfor %}
+</ul>
+
+{% endif %}

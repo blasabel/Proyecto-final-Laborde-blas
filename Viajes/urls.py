@@ -6,6 +6,9 @@ urlpatterns = [
     path('cliente/', views.cliente, name='cliente'),
     path('destino/', views.destino, name='destino'),
     path('estadia/', views.estadia, name='estadia'),
+    path('busquedaCiudad/', views.busquedaCiudad, name='busquedaCiudad'),
+    path('buscar/', views.buscar),
+
     
 
 ]
