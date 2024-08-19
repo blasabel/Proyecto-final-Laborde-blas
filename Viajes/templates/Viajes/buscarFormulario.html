@@ -3,25 +3,25 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
-<h3> Formulario -- Buscar Ciudad</h3>
+    <h3> Formulario -- Buscar Ciudad</h3>
 
-<form action="/Viajes/buscar/" method="GET">
-    <input type="text" name="ciudad" id="ciudad">
-    <input type="submit" value="Buscar">
+    <form action="/Viajes/buscar/" method="GET">
+        <input type="text" name="ciudad" id="ciudad">
+        <input type="submit" value="Buscar">
 
 
-</form>
+    </form>
 
-<p> Estamos buscando: {{ciudad}}</p>
+    <p> Estamos buscando: {{ciudad}}</p>
 
-{% if pais %}
+    {% if pais %}
 
-<ul>
-{% for Destino in pais %}
-    <li> {{Destino.ciudad}}</li>
-    <li> {{Destino.pais}}</li>
-{% endfor %}
-</ul>
+    <ul>
+    {% for Destino in pais %}
+        <li> {{Destino.ciudad}}</li>
+        <li> {{Destino.pais}}</li>
+    {% endfor %}
+    </ul>
 
 {% endif %}
 {% endblock %}
