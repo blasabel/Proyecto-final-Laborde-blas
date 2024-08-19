@@ -12,16 +12,16 @@
 
     </form>
 
-    <p> Estamos buscando: {{ciudad}}</p>
-
     {% if pais %}
-
+   
+    <p> Información sobre: {{ciudad}}</p>
+    
     <ul>
     {% for Destino in pais %}
-        <li> {{Destino.ciudad}}</li>
-        <li> {{Destino.pais}}</li>
+        <li> Ciudad: {{Destino.ciudad}}</li>
+        <li> Pais: {{Destino.pais}}</li>
     {% endfor %}
     </ul>
 
-{% endif %}
+    {% endif %}
 {% endblock %}
