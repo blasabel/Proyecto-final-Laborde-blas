@@ -1,27 +1,37 @@
-{% extends "Viajes/padre.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "Viajes/padre.html" %}
 
-{% load static %}
+    {% load static %}
 
-{% block contenidoQueCambia %}
-    <h3> Formulario -- Buscar Ciudad</h3>
+    {% block contenidoQueCambia %}
+        <h3> Formulario -- Buscar Ciudad</h3>
 
-    <form action="/buscar/" method="GET">
-        <input type="text" name="ciudad" id="ciudad">
-        <input type="submit" value="Buscar">
+        <form action="/buscar/" method="GET">
+            <input type="text" name="ciudad" id="ciudad">
+            <input type="submit" value="Buscar">
 
 
-    </form>
+        </form>
 
-    {% if pais %}
-   
-    <p> Información sobre: {{ciudad}}</p>
+        {% if pais %}
     
-    <ul>
-    {% for Destino in pais %}
-        <li> Ciudad: {{Destino.ciudad}}</li>
-        <li> Pais: {{Destino.pais}}</li>
-    {% endfor %}
-    </ul>
+        <p> Información sobre: {{ciudad}}</p>
+        
+        <ul>
+        {% for Destino in pais %}
+            <li> Ciudad: {{Destino.ciudad}}</li>
+            <li> Pais: {{Destino.pais}}</li>
+        {% endfor %}
+        </ul>
 
-    {% endif %}
-{% endblock %}
+        {% endif %}
+    {% endblock %}
+</body>
+</html>
