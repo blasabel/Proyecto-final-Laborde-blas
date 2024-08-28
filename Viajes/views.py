@@ -2,12 +2,14 @@ from django.shortcuts import render
 from Viajes.forms import ClienteFormulario, DestinoFormulario, EstadiaFormulario
 from Viajes.models import Cliente, Destino, Estadia
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def inicio(request):
     return render(request, 'Viajes/index.html')
 
+@login_required
 def cliente(request):
     if request.method == "POST":  
         miFormulario = ClienteFormulario(request.POST)  
@@ -24,8 +26,9 @@ def cliente(request):
     else:
         miFormulario = ClienteFormulario()  
 
-    return render(request, "Viajes/cliente.html", {"miFormulario": miFormulario})
-    
+    return render(request, "VIajes/cliente.html", {"miFormulario": miFormulario})
+
+@login_required
 def destino(request):
     if request.method == "POST":  
         miFormulario2 = DestinoFormulario(request.POST)  
@@ -43,7 +46,8 @@ def destino(request):
         miFormulario2 = DestinoFormulario()  
 
     return render(request, "Viajes/destino.html", {"miFormulario2": miFormulario2})
-    
+
+@login_required
 def estadia(request):
     if request.method == "POST":  
         miFormulario3 = EstadiaFormulario(request.POST)  
@@ -63,6 +67,7 @@ def estadia(request):
 
     return render(request, "Viajes/estadia.html", {"miFormulario3": miFormulario3})
 
+@login_required
 def buscarciudad(request):
     return render(request, "Viajes/buscarFormulario.html")
 
