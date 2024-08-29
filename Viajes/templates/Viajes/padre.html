@@ -32,6 +32,28 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'destino' %}">Destino</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'estadia' %}">Estadia</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'Buscar' %}">Buscar Ciudad</a></li>
+                        {% if request.user.is_autheticated %}
+                            <img src="{{request.user.imagen.imagen.url}}" alt="" style="height: 50px;width: 50px;">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{request.user.username}}
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'EditarPerfil' %}">Editar perfil</a></li>
+                                <li><a class="dropdown-item" href="{% url 'Logout' %}">Cerrar Sesion</a></li>
+                                </ul>
+                            </div>
+                        {% else %}
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Perfil 
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'Registrar' %}">Crear Cuenta</a></li>
+                                <li><a class="dropdown-item" href="{% url 'Login' %}"> Iniciar Sesion</a></li>
+                                </ul>
+                          </div> 
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -43,6 +65,7 @@
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">Odyssey BL</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5"> Hacemos de tu viaje una experiencia unica e inolvidable.</h2>
+                       
                         <a class="btn btn-primary" href="#about">¡Comenza tu aventura ya!</a>
                     </div>
                 </div>
