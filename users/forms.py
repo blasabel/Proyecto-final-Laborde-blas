@@ -13,8 +13,6 @@ class UserRegisterForm(UserCreationForm):
         help_text = {k: "" for k in fields}
 
 class UserEditForm(UserCreationForm):
-
-    
     email = forms.EmailField(label="Ingrese su email:")
     last_name = forms.CharField()
     first_name = forms.CharField()
