@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "Viajes/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+     <!-- About-->
+     <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4">Sobre Mi</h2>
+                    <p class="text-white-50">
+                        Hola, como estan?. Me llamo Blas Laborde y soy el creador y desarrollador de la pagina web Odyssey BL.
+                        Abajo podran encontrar mas acerca de mi y sobre la pagina.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Projects-->
+      <section class="projects-section bg-light" id="projects">
+        <div class="container px-4 px-lg-5">
+            <!-- Featured Project Row-->
+            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="col-xl-7 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="{% static 'Viajes/assets/img/blas.jpg' %}" alt="..." /></div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Sobre Mi</h4>
+                        <p class="text-black-50 mb-0">Me llamo Blas Abel Laborde.Tengo 19 años y soy de Buenos Aires, Argentina. Este curso es mi primer acercamiento hacia la programacion y estoy muy contento con la pagina que pude crear</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Project One Row-->
+            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                <div class="col-lg-6"><img class="img-fluid" src="https://img.freepik.com/foto-gratis/disparo-escala-grises-lago-rodeado-montanas-arboles_181624-10608.jpg" alt="..." /></div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Sobre mi Pagina</h4>
+                                <p class="mb-0 text-white-50">Esta pagina trata sobre una agencia de viajes en donde podes crear clientes, estadias y destinos. Y ademas podes verlos,editarlos y borrarlos. Podes iniciar sesion, editar perfil, registrar un usuario y subir avatars para cada usuario.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+</html>

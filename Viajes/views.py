@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 def inicio(request):
     return render(request, 'Viajes/index.html')
 
+def about(request):
+    return render(request, 'Viajes/about.html')
+
 @login_required
 def cliente(request):
     if request.method == "POST":  

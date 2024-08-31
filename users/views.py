@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
+from django.contrib.auth import authenticate
 from .forms import UserRegisterForm, UserEditForm
 from users.models import Avatar
 from django.contrib.auth.views import PasswordChangeView
@@ -25,7 +26,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 return render(request, "Viajes/index.html")
-
+                
         msg_login = "Usuario o contraseña incorrectos"
 
     form = AuthenticationForm()
@@ -40,8 +41,9 @@ def register(request):
         if form.is_valid():
             form.save()
             return render(request,"Viajes/index.html")
-        
-        msg_register = "Error en los datos ingresados"
+        else:
+            msg_register = "Error en los datos ingresados"
+            msg_register += f" | {form.errors}"
 
     form = UserRegisterForm()     
     return render(request,"users/registro.html" ,  {"form":form, "msg_register": msg_register})
