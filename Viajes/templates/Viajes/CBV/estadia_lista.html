@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "Viajes/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+    <h1> Listado de Estadias </h1>
+
+    {% for estadia in estadias %}
+        <li> Fecha de inicio: {{estadia.fecha_de_inicio}} - Fecha de regreso: {{estadia.fecha_de_regreso}}
+            <p>
+                <a href="{% url 'EstadiaDetalle' estadia.id %}"> Ver</a>
+                
+                <a href="{% url 'EstadiaEditar' estadia.id %}"> Editar</a>
+
+                <a href="{% url 'EstadiaEliminar' estadia.id %}"> Eliminar</a>
+
+            </p>
+        </li>
+    {% endfor %}
+    
+    <a href="{% url 'EstadiaCrear' %}">Crear Estadia</a>
+    {% endblock %}
+</body>
+</html>

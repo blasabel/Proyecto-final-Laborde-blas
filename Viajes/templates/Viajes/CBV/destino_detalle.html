@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "Viajes/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+    <h1> Detalle del Destino </h1>
+    
+    <p> Ciudad: <i>{{destino.ciudad}}</i></p>
+    <p> Pais: <i>{{destino.pais}}</i></p>
+    <p> Aerolinea: <i>{{destino.aerolinea}}</i></p>
+    <p>
+        <a href="{% url 'DestinoLista' %}">Regresar</a>
+    </p>
+    {% endblock %}
+</body>
+</html>

@@ -29,10 +29,9 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'inicio' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'sobre nosotros' %}">Sobre Mi</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'cliente' %}">Cliente</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'destino' %}">Destino</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'estadia' %}">Estadia</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Buscar' %}">Buscar Ciudad</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ClienteLista' %}">Cliente</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'DestinoLista' %}">Destino</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'EstadiaLista' %}">Estadia</a></li>
                         
                         {% if request.user.is_autheticated %}
                             <img src="{{request.user.imagen.imagen.url}}" alt="" style="height: 50px;width: 50px;">

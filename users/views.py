@@ -43,7 +43,7 @@ def register(request):
             return render(request,"Viajes/index.html")
         else:
             msg_register = "Error en los datos ingresados"
-            msg_register += f" | {form.errors}"
+            msg_register += f"{form.errors}"
 
     form = UserRegisterForm()     
     return render(request,"users/registro.html" ,  {"form":form, "msg_register": msg_register})

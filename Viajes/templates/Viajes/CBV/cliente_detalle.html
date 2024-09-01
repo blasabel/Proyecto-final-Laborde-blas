@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "Viajes/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+    <h1> Detalle del Cliente </h1>
+    <p> Nombre: <i>{{cliente.nombre}}</i> </p>
+    <p> Apellido: <i>{{cliente.apellido}}</i> </p>
+    <p> Edad: <i>{{cliente.edad}}</i> </p>
+    <p> Email: <i>{{cliente.email}}</i> </p>
+    <p>
+        <a href="{% url 'ClienteLista' %}">Regresar</a>
+    </p>
+    {% endblock %}
+</body>
+</html>
