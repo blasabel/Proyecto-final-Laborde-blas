@@ -33,8 +33,8 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'DestinoLista' %}">Destino</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'EstadiaLista' %}">Estadia</a></li>
                         
-                        {% if request.user.is_autheticated %}
-                            <img src="{{request.user.imagen.imagen.url}}" alt="" style="height: 50px;width: 50px;">
+                        {% if request.user.is_authenticated %}
+                            <img src="{{request.user.avatar.imagen.url}}" alt="" style="height: 50px;width: 50px;">
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{request.user.username}}

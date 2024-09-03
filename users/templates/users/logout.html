@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'Viajes/padre.html' %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %}
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column">
+                <h1> Has cerrado secion con exito</h1>
+                <a href="{% url 'inicio' %}" class="btn btn-primary"> Regresar a inicio</a>
+                
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
