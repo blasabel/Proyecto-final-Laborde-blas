@@ -11,22 +11,30 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-    <h1> Listado de Clientes </h1>
-
-    {% for cliente in clientes %}
-        <li> Nombre: {{cliente.nombre}} Apellido: {{cliente.apellido}}
-            <p>
-                <a href="{% url 'ClienteDetalle' cliente.id %}"> Ver</a>
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
                 
-                <a href="{% url 'ClienteEditar' cliente.id %}"> Editar</a>
+            <div class="d-flex flex-column">
+                
+                <h1> Listado de Clientes </h1>
 
-                <a href="{% url 'ClienteEliminar' cliente.id %}"> Eliminar</a>
+                {% for cliente in clientes %}
+                    <li> Nombre: {{cliente.nombre}} Apellido: {{cliente.apellido}}
+                        <p>
+                            <a href="{% url 'ClienteDetalle' cliente.id %}"> Ver</a>
+                            
+                            <a href="{% url 'ClienteEditar' cliente.id %}"> Editar</a>
 
-            </p>
-        </li>
-    {% endfor %}
-    
-    <a href="{% url 'ClienteCrear' %}">Crear Cliente</a>
+                            <a href="{% url 'ClienteEliminar' cliente.id %}"> Eliminar</a>
+
+                        </p>
+                    </li>
+                {% endfor %}
+                
+                <a href="{% url 'ClienteCrear' %}" class="btn btn-primary">Crear Cliente</a>
+            </div>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>

@@ -11,14 +11,22 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-    <h1> Detalle de la Estadia </h1>
-    <p> Fecha de inicio: <i>{{estadia.fecha_de_inicio}}</i> </p>
-    <p> Fecha de regreso: <i>{{estadia.fecha_de_regreso}}</i> </p>
-    <p> Residencia: <i>{{estadia.residencia}}</i> </p>
-    <p> Metodo de transporte: <i>{{estadia.metodo_de_transporte}}</i> </p>
-    <p>
-        <a href="{% url 'EstadiaLista' %}">Regresar</a>
-    </p>
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
+                
+            <div class="d-flex flex-column">
+                
+                <h1> Detalle de la Estadia </h1>
+                <p> Fecha de inicio: <i>{{estadia.fecha_de_inicio}}</i> </p>
+                <p> Fecha de regreso: <i>{{estadia.fecha_de_regreso}}</i> </p>
+                <p> Residencia: <i>{{estadia.residencia}}</i> </p>
+                <p> Metodo de transporte: <i>{{estadia.metodo_de_transporte}}</i> </p>
+                <p>
+                    <a href="{% url 'EstadiaLista' %}" class="btn btn-primary">Regresar</a>
+                </p>
+            </div>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>

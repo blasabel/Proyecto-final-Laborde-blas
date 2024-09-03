@@ -1,5 +1,5 @@
 """
-URL configuration for proyecto_pre_entrega project.
+URL configuration for proyecto_final project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/

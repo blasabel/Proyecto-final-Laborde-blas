@@ -11,22 +11,31 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-    <h1> Listado de Estadias </h1>
-
-    {% for estadia in estadias %}
-        <li> Fecha de inicio: {{estadia.fecha_de_inicio}} - Fecha de regreso: {{estadia.fecha_de_regreso}}
-            <p>
-                <a href="{% url 'EstadiaDetalle' estadia.id %}"> Ver</a>
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
                 
-                <a href="{% url 'EstadiaEditar' estadia.id %}"> Editar</a>
+            <div class="d-flex flex-column">
+                
+                <h1> Listado de Estadias </h1>
+                <h4> Fechas de inicio del viaje </h4>
 
-                <a href="{% url 'EstadiaEliminar' estadia.id %}"> Eliminar</a>
+                {% for estadia in estadias %}
+                    <li> Fecha de inicio: {{estadia.fecha_de_inicio}} 
+                        <p>
+                            <a href="{% url 'EstadiaDetalle' estadia.id %}"> Ver</a>
+                            
+                            <a href="{% url 'EstadiaEditar' estadia.id %}"> Editar</a>
 
-            </p>
-        </li>
-    {% endfor %}
-    
-    <a href="{% url 'EstadiaCrear' %}">Crear Estadia</a>
+                            <a href="{% url 'EstadiaEliminar' estadia.id %}"> Eliminar</a>
+
+                        </p>
+                    </li>
+                {% endfor %}
+                
+                <a href="{% url 'EstadiaCrear' %}" class="btn btn-primary">Crear Estadia</a>
+            </div>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>

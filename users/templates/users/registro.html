@@ -11,23 +11,25 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-    <div class="d-flex justify-content-center">
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
 
-        <div class="d-flex flex-column">
+            <div class="d-flex flex-column">
 
-            <p class="fs-5 fw-bold">{{ msg_register }}</p>
+                <p class="fs-5 fw-bold">{{ msg_register }}</p>
+                <h1> Registrarse</h1>
 
-            <form action="" method="POST">
-                {% csrf_token %}
-                
-                {{ form.as_p }}
-                <input type="submit" value="Registrarse">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    {{ form.as_p }}
+                    <input type="submit" value="Registrarse">
 
-            </form>
+                </form>
 
+            </div>
         </div>
     </div>
-    
     {% endblock %}
 </body>
 </html>

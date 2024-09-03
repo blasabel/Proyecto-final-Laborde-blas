@@ -11,22 +11,30 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-    <h1> Listado de Destinos </h1>
-
-    {% for destino in destinos %}
-        <li> Ciudad: {{destino.ciudad}} - Pais: {{destino.pais}}
-            <p>
-                <a href="{% url 'DestinoDetalle' destino.id %}"> Ver</a>
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
                 
-                <a href="{% url 'DestinoEditar' destino.id %}"> Editar</a>
+            <div class="d-flex flex-column">
+                
+                <h1> Listado de Destinos </h1>
 
-                <a href="{% url 'DestinoEliminar' destino.id %}"> Eliminar</a>
+                {% for destino in destinos %}
+                    <li> Ciudad: {{destino.ciudad}} - Pais: {{destino.pais}}
+                        <p>
+                            <a href="{% url 'DestinoDetalle' destino.id %}"> Ver</a>
+                            
+                            <a href="{% url 'DestinoEditar' destino.id %}"> Editar</a>
 
-            </p>
-        </li>
-    {% endfor %}
-    
-    <a href="{% url 'DestinoCrear' %}">Crear Destino</a>
+                            <a href="{% url 'DestinoEliminar' destino.id %}"> Eliminar</a>
+
+                        </p>
+                    </li>
+                {% endfor %}
+                
+                <a href="{% url 'DestinoCrear' %}" class="btn btn-primary">Crear Destino</a>
+            </div>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>

@@ -11,16 +11,23 @@
     {% load static %}
 
     {% block contenidoQueCambia %}
-    <h1> Eliminar Cliente</h1>
-    <form action="" method="POST">
-        {% crsf_token %}
-        
-        Estas seguro/a que queres eliminar al cliente: {{cliente.nombre}} {{cliente.apellido}} ??
+    <div class="container custom-bg p-5">
+        <div class="d-flex justify-content-center">
+                
+            <div class="d-flex flex-column">
+                
+                <h1> Eliminar Cliente</h1>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                    Estas seguro/a que queres eliminar al cliente: {{cliente.nombre}} {{cliente.apellido}} ??
 
-        <input type="submit" value="Eliminar">
+                    <input type="submit" value="Eliminar">
 
-    </form>
-    
+                </form>
+            </div>
+        </div>
+    </div>
     {% endblock %}
 </body>
 </html>

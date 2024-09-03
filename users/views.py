@@ -46,32 +46,32 @@ def register(request):
             msg_register += f"{form.errors}"
 
     form = UserRegisterForm()     
-    return render(request,"users/registro.html" ,  {"form":form, "msg_register": msg_register})
+    return render(request, "users/registro.html", {"form":form, "msg_register": msg_register})
 
 @login_required 
 def editar_perfil(request):
     usuario = request.user  
 
     if request.method == 'POST':  
-        miFormulario = UserEditForm(request.POST, request.FILES, instance=usuario) 
+        miFormulario2 = UserEditForm(request.POST, request.FILES, instance=usuario) 
 
-        if miFormulario.is_valid(): 
-            if miFormulario.cleaned_data.get('imagen'):  
+        if miFormulario2.is_valid(): 
+            if miFormulario2.cleaned_data.get('imagen'):  
                 if Avatar.objects.filter(user=usuario).exists():  
-                    usuario.imagen.imagen = miFormulario.cleaned_data.get('imagen')
+                    usuario.imagen.imagen = miFormulario2.cleaned_data.get('imagen')
                     usuario.imagen.save()  
                 else:
-                    avatar = Avatar(user=usuario, imagen=miFormulario.cleaned_data.get('imagen'))
+                    avatar = Avatar(user=usuario, imagen=miFormulario2.cleaned_data.get('imagen'))
                     avatar.save()  
 
-            miFormulario.save()  
+            miFormulario2.save()  
 
             return render(request, "Viajes/index.html")  
 
     else:  
-        miFormulario = UserEditForm(instance=usuario) 
+        miFormulario2 = UserEditForm(instance=usuario) 
 
-    return render(request, "users/editar_usuario.html", {"mi_form": miFormulario, "usuario": usuario})
+    return render(request, "users/editar_usuario.html", {"mi_form2": miFormulario2, "usuario": usuario})
 
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
     template_name = "users/editar_pass.html"
