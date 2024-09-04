@@ -14,24 +14,26 @@
     <div class="container custom-bg p-5">
         <div class="d-flex justify-content-center">
                 
-            <div class="d-flex flex-column">
-                
-                <h1> Listado de Clientes </h1>
+            <div class="d-flex flex-column">     
+                <h1> Listado de Clientes </h1>    
+                    {% for cliente in clientes %}
+                    <div class="card">
+                        <div class="card-body">
+                            <li> Nombre: {{cliente.nombre}} 
+                                <p>
+                                    <div class="btn-group">
+                                        <a href="{% url 'ClienteDetalle' cliente.id %}" class="btn btn-primary"> Ver</a>
+                                                
+                                        <a href="{% url 'ClienteEditar' cliente.id %}" class="btn btn-primary">Editar</a>
 
-                {% for cliente in clientes %}
-                    <li> Nombre: {{cliente.nombre}} 
-                        <p>
-                            <a href="{% url 'ClienteDetalle' cliente.id %}"> Ver</a>
-                            
-                            <a href="{% url 'ClienteEditar' cliente.id %}"> Editar</a>
-
-                            <a href="{% url 'ClienteEliminar' cliente.id %}"> Eliminar</a>
-
-                        </p>
-                    </li>
-                {% endfor %}
-                
-                <a href="{% url 'ClienteCrear' %}" class="btn btn-primary">Crear Cliente</a>
+                                        <a href="{% url 'ClienteEliminar' cliente.id %}" class="btn btn-primary"> Eliminar</a>
+                                    </div>
+                                </p>
+                            </li>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <a href="{% url 'ClienteCrear' %}" class="btn btn-primary">Crear Cliente</a>
             </div>
         </div>
     </div>

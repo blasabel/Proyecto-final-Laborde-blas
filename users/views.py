@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth import authenticate
 from .forms import UserRegisterForm, UserEditForm
 from users.models import Avatar
@@ -30,8 +30,8 @@ def login_request(request):
         msg_login = "Usuario o contraseña incorrectos"
 
     form = AuthenticationForm()
-    form.fields['username'].label = ['usuario'] 
-    form.fields['password'].label = ['contraseña'] 
+    form.fields['username'].label = "Usuario"
+    form.fields['password'].label = "Contraseña" 
     return render(request, "users/login.html", {"form": form, "msg_login": msg_login})
 
 
@@ -78,3 +78,10 @@ def editar_perfil(request):
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
     template_name = "users/editar_pass.html"
     success_url = reverse_lazy("EditarPerfil")
+
+@login_required 
+def cerrar_sesion(request):
+    if request.method == 'GET':
+        logout(request)
+        return render(request, 'users/logout.html')
+    return render(request, "Viajes/index.html")

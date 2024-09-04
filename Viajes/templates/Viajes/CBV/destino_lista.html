@@ -19,16 +19,21 @@
                 <h1> Listado de Destinos </h1>
 
                 {% for destino in destinos %}
-                    <li> Ciudad: {{destino.ciudad}} 
-                        <p>
-                            <a href="{% url 'DestinoDetalle' destino.id %}"> Ver</a>
-                            
-                            <a href="{% url 'DestinoEditar' destino.id %}"> Editar</a>
+                <div class="card">
+                    <div class="card-body">
+                        <li> Ciudad: {{destino.ciudad}} 
+                            <p>
+                                <div class="btn-group">
+                                    <a href="{% url 'DestinoDetalle' destino.id %}" class="btn btn-primary"> Ver</a>
+                                    
+                                    <a href="{% url 'DestinoEditar' destino.id %}" class="btn btn-primary"> Editar</a>
 
-                            <a href="{% url 'DestinoEliminar' destino.id %}"> Eliminar</a>
-
-                        </p>
-                    </li>
+                                    <a href="{% url 'DestinoEliminar' destino.id %}" class="btn btn-primary"> Eliminar</a>
+                                </div>
+                            </p>
+                        </li>
+                    </div>
+                </div>
                 {% endfor %}
                 
                 <a href="{% url 'DestinoCrear' %}" class="btn btn-primary">Crear Destino</a>

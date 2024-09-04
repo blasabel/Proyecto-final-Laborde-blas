@@ -15,15 +15,18 @@
         <div class="d-flex justify-content-center">
                 
             <div class="d-flex flex-column">
-                
-                <h1> Detalle del Destino </h1>
-                
-                <p> Ciudad: <i>{{destino.ciudad}}</i></p>
-                <p> Pais: <i>{{destino.pais}}</i></p>
-                <p> Aerolinea: <i>{{destino.aerolinea}}</i></p>
-                <p>
-                    <a href="{% url 'DestinoLista' %}" class="btn btn-primary">Regresar</a>
-                </p>
+                <div class="card">
+                    <div class="card-body">
+                        <h1> Detalle del Destino </h1>
+                        
+                        <p> Ciudad: <i>{{destino.ciudad}}</i></p>
+                        <p> Pais: <i>{{destino.pais}}</i></p>
+                        <p> Aerolinea: <i>{{destino.aerolinea}}</i></p>
+                        <p>
+                            <a href="{% url 'DestinoLista' %}" class="btn btn-primary">Regresar</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
