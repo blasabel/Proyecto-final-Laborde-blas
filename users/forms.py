@@ -1,8 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
 class UserRegisterForm(UserCreationForm):
+    username = forms.CharField(label="Usuario")
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir contraseña', widget=forms.PasswordInput)
@@ -12,10 +13,11 @@ class UserRegisterForm(UserCreationForm):
         fields = ["username", "email", "password1", "password2"]
         help_text = {k: "" for k in fields}
 
-class UserEditForm(UserCreationForm):
+class UserEditForm(UserChangeForm):
+    password = None
     email = forms.EmailField(label="Ingrese su email:")
-    last_name = forms.CharField()
-    first_name = forms.CharField()
+    last_name = forms.CharField(label="Apellido")
+    first_name = forms.CharField(label="Nombre")
     imagen = forms.ImageField(label="Avatar", required=False)
 
     class Meta:

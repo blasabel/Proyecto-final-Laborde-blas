@@ -19,7 +19,7 @@
                 <h1> Listado de Destinos </h1>
 
                 {% for destino in destinos %}
-                    <li> Ciudad: {{destino.ciudad}} - Pais: {{destino.pais}}
+                    <li> Ciudad: {{destino.ciudad}} 
                         <p>
                             <a href="{% url 'DestinoDetalle' destino.id %}"> Ver</a>
                             

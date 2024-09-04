@@ -16,27 +16,6 @@ def inicio(request):
 def about(request):
     return render(request, 'Viajes/about.html')
 
-# def estadia(request):
-#     if request.method == "POST":  
-#         miFormulario3 = EstadiaFormulario(request.POST)  
-#         print(miFormulario3)  
-
-#         if miFormulario3.is_valid(): 
-#             informacion3 = miFormulario3.cleaned_data  
-#             estadia = Estadia(fecha_de_inicio=informacion3["fecha_de_inicio"], 
-#                             fecha_de_regreso=informacion3["fecha_de_regreso"], 
-#                             residencia=informacion3["residencia"],
-#                             metodo_de_transporte=informacion3["metodo_de_transporte"])
-                            
-#             estadia.save()  
-#             return render(request, "Viajes/index.html") 
-#     else:
-#         miFormulario3 = EstadiaFormulario()  
-
-#     return render(request, "Viajes/estadia.html", {"miFormulario3": miFormulario3})
-
-
-
 #CBV DE CLIENTE
 #Clase para listar los clientes
 class ClienteListView(LoginRequiredMixin, ListView):
