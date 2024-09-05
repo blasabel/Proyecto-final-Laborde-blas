@@ -5,16 +5,19 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView,CreateView,DeleteView,UpdateView,DetailView
 from django.urls import reverse_lazy
+from datetime import datetime
 
 
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'Viajes/index.html')
+    fecha_dia_actual = datetime.now().strftime('%D/%M/%Y, %H:%M:%S')
+    return render(request, 'Viajes/index.html', {"dia_actual": fecha_dia_actual})
 
 @login_required
 def about(request):
-    return render(request, 'Viajes/about.html')
+    fecha_dia_actual = datetime.now().strftime('%D/%M/%Y, %H:%M:%S')
+    return render(request, 'Viajes/about.html', {"dia_actual": fecha_dia_actual})
 
 #CBV DE CLIENTE
 #Clase para listar los clientes
@@ -22,6 +25,7 @@ class ClienteListView(LoginRequiredMixin, ListView):
     model = Cliente
     context_object_name = "clientes"
     template_name = "Viajes/CBV/cliente_lista.html"
+    
 
 #Clase para ver a detalle los clientes
 class ClienteDetailView(LoginRequiredMixin, DetailView):
@@ -56,6 +60,7 @@ class DestinoListView(LoginRequiredMixin, ListView):
     model = Destino
     context_object_name = "destinos"
     template_name = "Viajes/CBV/destino_lista.html"
+    fecha_dia_actual = datetime.now().strftime('%D/%M/%Y, %H:%M:%S')
 
 #Clase para ver a detalle los destinos
 class DestinoDetailView(LoginRequiredMixin, DetailView):
@@ -88,6 +93,7 @@ class EstadiaListView(LoginRequiredMixin, ListView):
     model = Estadia
     context_object_name = "estadias"
     template_name = "Viajes/CBV/estadia_lista.html"
+    fecha_dia_actual = datetime.now().strftime('%D/%M/%Y, %H:%M:%S')
 
 #Clase para ver a detalle las estadias
 class EstadiaDetailView(LoginRequiredMixin, DetailView):
