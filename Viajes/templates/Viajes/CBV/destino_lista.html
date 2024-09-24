@@ -15,27 +15,28 @@
         <div class="d-flex justify-content-center">
                 
             <div class="d-flex flex-column">
-                
                 <h1> Listado de Destinos </h1>
+                    {% if destinos %}
+                        {% for destino in destinos %}
+                        <div class="card">
+                            <div class="card-body">
+                                <li> Ciudad: {{destino.ciudad}} 
+                                    <p>
+                                        <div class="btn-group">
+                                            <a href="{% url 'DestinoDetalle' destino.id %}" class="btn btn-primary"> Ver</a>
+                                            
+                                            <a href="{% url 'DestinoEditar' destino.id %}" class="btn btn-primary"> Editar</a>
 
-                {% for destino in destinos %}
-                <div class="card">
-                    <div class="card-body">
-                        <li> Ciudad: {{destino.ciudad}} 
-                            <p>
-                                <div class="btn-group">
-                                    <a href="{% url 'DestinoDetalle' destino.id %}" class="btn btn-primary"> Ver</a>
-                                    
-                                    <a href="{% url 'DestinoEditar' destino.id %}" class="btn btn-primary"> Editar</a>
-
-                                    <a href="{% url 'DestinoEliminar' destino.id %}" class="btn btn-primary"> Eliminar</a>
-                                </div>
-                            </p>
-                        </li>
-                    </div>
-                </div>
-                {% endfor %}
-                
+                                            <a href="{% url 'DestinoEliminar' destino.id %}" class="btn btn-primary"> Eliminar</a>
+                                        </div>
+                                    </p>
+                                </li>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <h2> No hay destinos todavia </h2>
+                    {% endif %}
                 <a href="{% url 'DestinoCrear' %}" class="btn btn-primary">Crear Destino</a>
             </div>
         </div>

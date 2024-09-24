@@ -15,28 +15,29 @@
         <div class="d-flex justify-content-center">
                 
             <div class="d-flex flex-column">
-                
                 <h1> Listado de Estadias </h1>
-                <h4> Fechas de inicio del viaje </h4>
+                {% if estadias %}
+                    <h3> Fechas de inicio del viaje </h3>
+                    {% for estadia in estadias %}
+                    <div class="card">
+                        <div class="card-body">
+                            <li> Fecha de inicio: {{estadia.fecha_de_inicio}} 
+                                <p>
+                                    <div class="btn-group">
+                                        <a href="{% url 'EstadiaDetalle' estadia.id %}" class="btn btn-primary"> Ver</a>
+                                        
+                                        <a href="{% url 'EstadiaEditar' estadia.id %}" class="btn btn-primary"> Editar</a>
 
-                {% for estadia in estadias %}
-                <div class="card">
-                    <div class="card-body">
-                        <li> Fecha de inicio: {{estadia.fecha_de_inicio}} 
-                            <p>
-                                <div class="btn-group">
-                                    <a href="{% url 'EstadiaDetalle' estadia.id %}" class="btn btn-primary"> Ver</a>
-                                    
-                                    <a href="{% url 'EstadiaEditar' estadia.id %}" class="btn btn-primary"> Editar</a>
-
-                                    <a href="{% url 'EstadiaEliminar' estadia.id %}" class="btn btn-primary"> Eliminar</a>
-                                </div>
-                            </p>
-                        </li>
+                                        <a href="{% url 'EstadiaEliminar' estadia.id %}" class="btn btn-primary"> Eliminar</a>
+                                    </div>
+                                </p>
+                            </li>
+                        </div>
                     </div>
-                </div>
-                {% endfor %}
-                
+                    {% endfor %}
+                {% else %}
+                    <h2> No existen estadias programadas </h2>
+                {% endif %}
                 <a href="{% url 'EstadiaCrear' %}" class="btn btn-primary">Crear Estadia</a>
             </div>
         </div>

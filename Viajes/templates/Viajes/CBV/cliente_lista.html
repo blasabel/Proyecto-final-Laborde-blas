@@ -16,23 +16,27 @@
                 
             <div class="d-flex flex-column">     
                 <h1> Listado de Clientes </h1>    
-                    {% for cliente in clientes %}
-                    <div class="card">
-                        <div class="card-body">
-                            <li> Nombre: {{cliente.nombre}} 
-                                <p>
-                                    <div class="btn-group">
-                                        <a href="{% url 'ClienteDetalle' cliente.id %}" class="btn btn-primary"> Ver</a>
-                                                
-                                        <a href="{% url 'ClienteEditar' cliente.id %}" class="btn btn-primary">Editar</a>
+                    {% if clientes %}
+                        {% for cliente in clientes %}
+                        <div class="card">
+                            <div class="card-body">
+                                <li> Nombre: {{cliente.nombre}} 
+                                    <p>
+                                        <div class="btn-group">
+                                            <a href="{% url 'ClienteDetalle' cliente.id %}" class="btn btn-primary"> Ver</a>
+                                                    
+                                            <a href="{% url 'ClienteEditar' cliente.id %}" class="btn btn-primary">Editar</a>
 
-                                        <a href="{% url 'ClienteEliminar' cliente.id %}" class="btn btn-primary"> Eliminar</a>
-                                    </div>
-                                </p>
-                            </li>
+                                            <a href="{% url 'ClienteEliminar' cliente.id %}" class="btn btn-primary"> Eliminar</a>
+                                        </div>
+                                    </p>
+                                </li>
+                            </div>
                         </div>
-                    </div>
-                    {% endfor %}
+                        {% endfor %}
+                    {% else %}
+                        <h2> No existen clientes todavia </h2>
+                    {% endif %}
                     <a href="{% url 'ClienteCrear' %}" class="btn btn-primary">Crear Cliente</a>
             </div>
         </div>
